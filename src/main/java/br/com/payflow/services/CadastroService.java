@@ -33,7 +33,7 @@ public class CadastroService {
         .orElseThrow(() -> new RuntimeException("Nenhum usuário encontrado"));
     }
 
-    public User
+
 
 
 }
