@@ -1,6 +1,6 @@
 package br.com.payflow.repositories;
 
-import jakarta.transaction.Transaction;
+import br.com.payflow.models.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

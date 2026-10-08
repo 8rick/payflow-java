@@ -21,16 +21,16 @@ public class Transaction {
     Long id;
 
     @ManyToOne
-    @JoinColumn(name = "rementente_id", nullable = false)
+    @JoinColumn(name = "remetente_id", nullable = false)
     private User remetente;
 
     @ManyToOne
     @JoinColumn(name = "destinatario_id", nullable = false)
     private User destinatario;
 
-    BigDecimal value;
+    private BigDecimal value;
 
 
-    LocalDateTime dateTime;
+    private LocalDateTime dateTime;
 
 }

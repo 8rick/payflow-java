@@ -1,9 +1,9 @@
 package br.com.payflow.services;
 
-import br.com.payflow.dtos.UserDTO;
 import br.com.payflow.models.User;
 import br.com.payflow.repositories.UserRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class CadastroService {
@@ -16,9 +16,10 @@ public class CadastroService {
     public User createUser(UserDTO dto) {
 
        User newUser = new User();
+       newUser.setSaldo(BigDecimal.ZERO);
 
        newUser.setNome(dto.nome());
-       newUser.setCpf(String.valueOf(dto.cpf()));
+       newUser.setCpf(dto.cpf());
        newUser.setEmail(dto.email());
 
        return repository.save(newUser);
