@@ -448,13 +448,6 @@ payflow-java/
 - Fixar versões de actions e revisar atualizações de dependências.
 - Criar exemplos de requisições e respostas reais, após confirmar o contrato da API.
 
-## Segurança
 
-- Nunca coloque senhas reais no README, no código ou nos arquivos de workflow.
-- Não compartilhe logs que contenham credenciais ou URLs de conexão completas.
-- Os valores de PostgreSQL usados no workflow são exclusivamente para o banco temporário do runner, não para o Neon.
-- Antes de qualquer deploy público, implemente autenticação e autorização adequadas às operações financeiras.
 
-## Licença
 
-Nenhuma licença foi especificada neste README. Se o projeto for disponibilizado publicamente, adicione um arquivo `LICENSE` com a licença escolhida.
