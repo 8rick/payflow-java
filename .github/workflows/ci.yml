@@ -40,11 +40,12 @@ jobs:
           distribution: temurin
           java-version: '25'
           cache: maven
+
       - name: Executar testes
         env:
-        DB_URL: jdbc:postgresql://localhost:5432/payflow
-        DB_USERNAME: payflow
-        DB_PASSWORD: payflow
+          DB_URL: jdbc:postgresql://localhost:5432/payflow
+          DB_USERNAME: payflow
+          DB_PASSWORD: payflow
         run: |
-         chmod +x mvnw
-         ./mvnw -B verify
+          chmod +x mvnw
+          ./mvnw -B verify
