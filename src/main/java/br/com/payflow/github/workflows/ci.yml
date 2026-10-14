@@ -1,0 +1,49 @@
+name: PayFlow - CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: payflow
+          POSTGRES_USER: payflow
+          POSTGRES_PASSWORD: payflow
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isredy -U payflow -d playflow"
+          --health-interval 10s
+          --heath-timeout 5s
+          --health-retries 5 
+
+        steps:
+          - name: Baixar o código
+            users: actions/checkout@v6
+
+          - name: Configurar java 25
+            users: actions/setup-java@6
+            with:
+            distribution: temurin
+            java-version: '25'
+            cache: maven
+
+          - name: Executar os testes
+            env:
+             DB_URL: jdbc:postgresql://localhost:5432/payflow
+             DB_USERNAME: payflow
+             DB_PASSWORD: payflow
+            run: | 
+             chmod +x mvnw
+             .mvnw -B test
